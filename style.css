@@ -1,0 +1,210 @@
+/* Estilo Geral */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background: url("img/fundo.png") no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Grid de Itens */
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilo dos Itens */
+.armas {
+    background-image: url("img/item_box.png");
+    background-size: contain; /* Ajusta o tamanho da imagem de fundo */
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 99px; /* Largura fixa da borda personalizada */
+    height: 122px; /* Altura fixa da borda personalizada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* Margem superior e inferior entre os itens */
+    position: relative;
+    overflow: visible !important;
+}
+
+/* Ajuste para as imagens dentro dos itens */
+.armas img {
+    max-width: 90%; /* Garante que a imagem fique dentro da borda */
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Estilo dos Links e Botões */
+a {
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+span.tipo {
+    width: 69px;
+    height: 20px;
+    background: url('botao.png');
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+span.tipo:hover {
+    color: gold;
+}
+
+h3 {
+    background: gold;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+span.botao {
+    display: inline-block;
+    background: url('img/botao.png') no-repeat center;
+    background-size: contain;
+    color: white;
+    border: none;
+    border-radius: 1px;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+span.botao:hover {
+    opacity: 0.8;
+}
+
+/* Ajustes para Responsividade */
+@media (max-width: 768px) {
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    h3.info-message {
+        font-size: 14px;
+    }
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#menu img {
+    margin-top: 50px;
+}
+
+.arma-desc {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    padding: 5px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    width: 200px;
+}
+
+.desc-img {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+.armas:nth-child(even) {
+    transform: translateX(50px);
+}
+
+.armas:nth-child(odd) {
+    transform: translateX(-50px);
+}
+
+.armas:hover {
+    z-index: 9999;
+}
+
+.armas:hover .arma-desc {
+    display: block;
+    top: 100%;
+}
+
+/* Esconde o checkbox */
+.toggle-desc {
+    display: none;
+}
+
+
+/* Mostra a descrição quando hover */
+.armas:hover .arma-desc {
+    display: block;
+    top: 100%;
+}
+
+/* Garante que o item com descrição visível fique acima dos outros */
+.armas:hover,
+.toggle-desc:checked ~ .arma-desc {
+    z-index: 9999;
+}
